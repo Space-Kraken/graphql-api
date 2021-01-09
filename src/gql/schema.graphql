@@ -1,0 +1,44 @@
+# Crea aqui todas las consultas y definiciones de datos
+# type <nombre> {...arg} <- definicion
+
+# Usa Query para las consultas de datos
+type Query {
+  queryTest: String!
+  queryCustomtype: Example!
+}
+
+# Usa Mutation para las modificaciones a los datos
+type Mutation {
+  mutationTest(msg: String): String!
+}
+
+# typeDef (para modelar datos a recibir)
+type Example {
+  msg: String!
+}
+
+#? -----Creacion de consultas------
+#- Las querys son metodos los cuales regresan un tipo de dato
+# la estrucutra de estas son: <nombre>: <scalar || typeDef>
+# siendo el escalar el tipo de dato devuelto
+
+#? -----Creacion de mutaciones------
+#- Las mutaciones al igual que las querys regresan un tipo de dato
+# y se definen igual que las querys: <nombre>:<scalar> pero estas
+# pueden recibir parametros siendo su sintaxis:
+# <nombre>(<arg>:<scalar>):<scalar || typeDef>
+
+#? -----Creacion de tipos de dato------
+#- Se pueden crear definiciones de datos las cuales funcionan como
+# datos aptos para retornar
+
+#? -----Escalares predefinidos------
+#- los escalares (o tipos de datos) que hay en gql son:
+# -> Int (32-bit Integer), Float (valores "decimales"),
+# -> String (valores UTF-8), Boolean (...), ID (identificador unico)
+
+#? -----Escalares perzonalizados------
+#- Es posible crear escalares personalizados
+# scalar <nombre>
+# Siendo scalar la directiva de creacion y nombre como identificaremos
+# el nuevo tipo de dato, estos tipos de dato pueden recibir obj de JS
